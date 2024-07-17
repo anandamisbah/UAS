@@ -2,7 +2,6 @@ import 'dart:convert';
 
 Meals mealsFromJson(String str) => Meals.fromJson(json.decode(str));
 
-String mealsToJson(Meals data) => json.encode(data.toJson());
 
 class Meals {
   final List<Meal>? meals;
@@ -17,11 +16,7 @@ class Meals {
             : List<Meal>.from(json["meals"].map((x) => Meal.fromJson(x))),
       );
 
-  Map<String, dynamic> toJson() => {
-        "meals": meals == null
-            ? []
-            : List<dynamic>.from(meals!.map((x) => x.toJson())),
-      };
+
 }
 
 class Meal {
@@ -41,9 +36,5 @@ class Meal {
         idMeal: json["idMeal"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "strMeal": strMeal,
-        "strMealThumb": strMealThumb,
-        "idMeal": idMeal,
-      };
+
 }
